@@ -1,25 +1,33 @@
 import React, { Component } from 'react';
-import Contacts from './components/contacts';
+import Rutas from './components/rutas';
+import Clock from 'react-live-clock';
+import { estacion } from '../public/index.html'
 
     class App extends Component {
-
       state = {
-        contacts: []
+        rutas: []
       }
       componentDidMount() {
-        fetch('http://http://busstop-ble.herokuapp.com/Users')
+        console.log("este es el nombre " + estacion)
+        let beacon_url = "https://busstop-ble.herokuapp.com/rutas?estacion="+estacion+"&hora=8:00"
+        console.log(beacon_url)
+        fetch(beacon_url)
         .then(res => res.json())
         .then((data) => {
-          this.setState({ contacts: data })
+          this.setState({ rutas: data })
         })
         .catch(console.log)
       }
 
       render() {
         return (
-            <Contacts contacts={this.state.contacts} />
+          <div>
+           <Rutas rutas={this.state.rutas} />
+           <Clock format={'HH:mm:ss'} ticking={true} timezone={'US/Pacific'} />
+          </div> 
         );
       }
+
     }
 
     export default App;
