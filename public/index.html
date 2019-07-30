@@ -1,60 +1,27 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+
+<head>
+
+    <!-- <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="theme-color" content="#000000">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link href="https://use.fontawesome.com/releases/v5.0.6/css/all.css" rel="stylesheet"> -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous" />
     <title>Bus Stop User</title>
-  </head>
-  <body>
+
+    <script src="https://unpkg.com/react/umd/react.production.min.js" crossorigin></script>
+    <script src="https://unpkg.com/react-dom/umd/react-dom.production.min.js" crossorigin></script>
+    <script src="https://unpkg.com/react-bootstrap@next/dist/react-bootstrap.min.js" crossorigin></script>
+
+</head>
+
+<body>
+
     <noscript>You need to enable JavaScript to run this app.</noscript>
     <div id="root"></div>
-    <script>
- 
-    //   /**
-    //   * Funcion que captura las variables pasados por GET
-    //   * Devuelve un array de clave=>valor
-    //   */
-    //   function getGET()
-    //   {
-    //       // capturamos la url
-    //       var loc = document.location.href;
-    //       // si existe el interrogante
-    //       if(loc.indexOf('?')>0)
-    //       {
-    //           // cogemos la parte de la url que hay despues del interrogante
-    //           var getString = loc.split('?')[1];
-    //           // obtenemos un array con cada clave=valor
-    //           var GET = getString.split('&');
-    //           var get = {};
-    //           // recorremos todo el array de valores
-    //           for(var i = 0, l = GET.length; i < l; i++){
-    //               var tmp = GET[i].split('=');
-    //               get[tmp[0]] = unescape(decodeURI(tmp[1]));
-    //           }
-    //           return get;
-    //       }
-    //   }
-    //   window.onload = function()
-    //   {
-    //       // Cogemos los valores pasados por get
-    //       var valores=getGET();
-    //       if(valores)
-    //       {
-    //           //recogemos los valores que nos envia la URL en variables para trabajar 
-    //               //con ellas
-    //           var estacion = valores['estacion'];
-    //               // hacemos un bucle para pasar por cada indice del array de valores
-    //           for(var index in valores)
-    //           {
-    //               console.log(" clave: "+index+" - valor: "+valores[index]);
-    //           }
-    //           console.log("La estacion es: " + estacion);
-    //       }else{
-    //           // no se ha recibido ningun parametro por GET
-    //           console.log("No se ha recibido ningún parámetro");
-    //       }
-    //   }
-    //   export { estacion };
-    //   </script>
 
-  </body>
+</body>
+
 </html>
