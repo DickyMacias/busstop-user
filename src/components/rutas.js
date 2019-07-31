@@ -3,6 +3,7 @@ import { Container, Row, Col, Card, CardBody } from "shards-react";
 import Badge from 'react-bootstrap/Badge'
 
 const Rutas = ({ rutas }) => {
+  
   return (
     <div>
       {rutas.map((ruta) => (
@@ -21,14 +22,28 @@ const Rutas = ({ rutas }) => {
                     {(() => {
                       switch(ruta.check) {
                         case '0':
-                          return <Badge pill variant="secondary"> Waiting </Badge>;
+                          return <center><Badge pill variant="secondary"> Waiting </Badge></center>;
                         case '1':
-                          return <Badge pill variant="success"> On Time </Badge>;
+                          return <center><Badge pill variant="success"> On Time </Badge></center>;
                         case '2':
-                          return <Badge pill variant="danger"> Delay </Badge>;
+                          return <center><Badge pill variant="danger"> Delay </Badge></center>;
                         default:
                           return null;
                       }
+                    })()}
+                  </td>
+                  <td>
+                    {(() => {
+                      let tracking = parseInt(ruta.id_tracking)-1;
+                      fetch("http://localhost:3000/rutas?id_tracking="+ tracking)
+                      .then(res => res.json())
+                      .then((data) => {
+                          // this.setState({ lugares: data })
+                          data.map((datos) => (
+                              <p>{datos.check}</p>
+                              ))
+                      })
+                      .catch(console.log)
                     })()}
                   </td>
                 </tr>
@@ -44,8 +59,4 @@ const Rutas = ({ rutas }) => {
   )
 };
 
-export default Rutas
-
-
-
-    
+export default Rutas    
