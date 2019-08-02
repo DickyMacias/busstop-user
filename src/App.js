@@ -56,6 +56,7 @@ class App extends Component {
 
     render() {
         return ( <React.Fragment>
+            <div className="sticky">
             <Pages> </Pages>  
             <Container>
             <Card>
@@ -87,7 +88,8 @@ class App extends Component {
             timezone = { 'America/Chihuahua' }/>  
             </h1> </center>   
             </div> 
-            
+            </div>
+
             <Rutas rutas = { this.state.rutas }/>    
             </React.Fragment>
         );
