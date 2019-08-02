@@ -1,25 +1,18 @@
 import React from 'react'
-import Badge from 'react-bootstrap/Badge'
+import { Container, Row, Col, Card, CardBody } from "shards-react";
 
 const Lugares = ({ lugares }) => {
   return (
     <div>
-      {lugares.map((lugar) => (
-        <p>
-        {(() => {
-            switch(lugar.check) {
-            case '0':
-                return <Badge pill variant="secondary"> Waiting </Badge>;
-            case '1':
-                return <Badge pill variant="success"> On Time </Badge>;
-            case '2':
-                return <Badge pill variant="danger"> Delay </Badge>;
-            default:
-                return null;
-            }
-        })()}
-        </p>
-      ))}
+        <Container>
+            <Card>
+                <CardBody>
+                <div>
+                    <center><h2>Estacion {this.station}</h2></center>
+                </div>
+                </CardBody>
+            </Card>
+        </Container>
     </div>
   )
 };

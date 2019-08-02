@@ -2,6 +2,8 @@ import React, { Component } from 'react';
 import Rutas from './components/rutas';
 import Clock from 'react-live-clock';
 import Pages from './components/pages';
+import axios from 'axios';
+import { Container, Row, Col, Card, CardBody } from "shards-react";
 
 
 class App extends Component {
@@ -10,13 +12,14 @@ class App extends Component {
     }
     componentDidMount() {
         // Cargar parametros desde URL
-        let url_params = getParam();
+        var url_params = getParam();
         let hora = timeReader();
         let a = parseInt(hora) - 1;
         let d = parseInt(hora) + 1;
 
         if (url_params) {
             var estacion = url_params['estacion'];
+            this.station = estacion;
             // for(var index in url_params)
             // {
             //   console.log(" clave: "+index+" - valor: "+url_params[index]);
@@ -29,7 +32,7 @@ class App extends Component {
         console.log("este es antes" + a)
         console.log("este es despues" + d)
         console.log("este es el nombre " + estacion)
-        let beacon_url = "http://localhost:3000/rutas?estacion=" + estacion +
+        let beacon_url = "https://busstop-api.herokuapp.com/rutas?estacion=" + estacion +
             // "&hora=" + a + ":48" +
             // "&hora=" + hora + ":00" +
             // "&hora=" + hora + ":12" +
@@ -41,33 +44,52 @@ class App extends Component {
             // "&hora=" + d + ":24" +
             "&hora=" + "8" + ":24"
         console.log(beacon_url)
-        fetch(beacon_url)
-            .then(res => res.json())
-            .then((data) => {
-                this.setState({ rutas: data })
+        axios.get(beacon_url)
+            .then(res => {
+                const rutas = res.data;
+                this.setState({ rutas });
             })
-            .catch(console.log)
-        this.forceUpdate();
 
+        this.forceUpdate();
 
     }
 
     render() {
-        return ( <
-            React.Fragment >
-            <
-            Pages > < /Pages>  <
-            center > < h1 >
-            <
-            Clock format = { 'HH:mm:ss' }
+        return ( <React.Fragment>
+            <Pages> </Pages>  
+            <Container>
+            <Card>
+            <CardBody>
+            <Row>
+            <Col>
+            <center>
+            <img alt = ""
+            src = { require("./utch.png") }
+            width = "60"
+            height = "60"
+            className = "d-inline-block align-top"/>
+            </center>      </Col> 
+            <Col>
+            
+            <center>
+            
+            <h2> Estacion { this.station } </h2> </center> </Col>  </Row> 
+            </CardBody>  
+            </Card> 
+            </Container>  
+            <Container >
+            </Container>  
+            <div>
+            <center>
+            <h1>
+            <Clock format = { 'HH:mm:ss' }
             ticking = { true }
-            timezone = { 'America/Chihuahua' }
-            />   < /
-            h1 > < /center > <
-            Rutas rutas = { this.state.rutas }
-            />  < /
-            React.Fragment >
-
+            timezone = { 'America/Chihuahua' }/>  
+            </h1> </center>   
+            </div> 
+            
+            <Rutas rutas = { this.state.rutas }/>    
+            </React.Fragment>
         );
     }
 }
@@ -106,5 +128,6 @@ function checkTime(i) {
     if (i < 10) { i = "0" + i }; // add zero in front of numbers < 10
     return i;
 }
+
 
 export default App;
