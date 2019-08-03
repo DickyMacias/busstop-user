@@ -2,6 +2,9 @@ import React from 'react'
 import Modal from 'react-bootstrap/Modal'
 import Button from 'react-bootstrap/Button'
 import Figure from 'react-bootstrap/Figure'
+import ReactImageMagnify from 'react-image-magnify';
+
+import ruta1 from '../ruta 1.jpg';
 
 function MyVerticallyCenteredModal(props) {
   return (
@@ -18,12 +21,27 @@ function MyVerticallyCenteredModal(props) {
       <Modal.Body>
         {/*<h4>Centered Modal</h4>*/}
         <center><Figure>
-  <Figure.Image
+        
+        <ReactImageMagnify {...{
+                        smallImage: {
+                            alt: 'Wristwatch by Ted Baker London',
+                            isFluidWidth: true,
+                            src: ruta1,
+                        },
+                        largeImage: {
+                            src: ruta1,
+                            width: 1200,
+                            height: 1800
+                        }
+                    }} />
+  
+  
+  {/*<Figure.Image
     width={400}
     height={400}
     alt=""
     src={require("../ruta 1.jpg")}
-  />
+  />*/}
   <Figure.Caption>
     Mapa de las estaciones que componen la ruta 1.
   </Figure.Caption>
