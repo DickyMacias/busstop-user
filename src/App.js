@@ -56,6 +56,7 @@ class App extends Component {
 
     render() {
         return ( <React.Fragment>
+            <StickyContainer>
             <div className="sticky">
             <Pages> </Pages>  
             <Container>
@@ -89,7 +90,7 @@ class App extends Component {
             </h1> </center>   
             </div> 
             </div>
-
+            </StickyContainer>
             <Rutas rutas = { this.state.rutas }/>    
             </React.Fragment>
         );
