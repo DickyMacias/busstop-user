@@ -4,19 +4,21 @@ import Button from 'react-bootstrap/Button'
 import Figure from 'react-bootstrap/Figure'
 import ReactImageMagnify from 'react-image-magnify';
 
-function Camiones(id) {
+function Ruta2() {
   const [modalShow, setModalShow] = React.useState(false);
 
   return (
       <div>
       <Button variant="primary" onClick={() => setModalShow(true)}>
+        Ver Ruta
       </Button>
 
-      <MyVerticallyCenteredModal rutita={id}
+      <MyVerticallyCenteredModal
         show={modalShow}
         onHide={() => setModalShow(false)}/>
       </div>
   );
+}
 
 function MyVerticallyCenteredModal(props) {
   return (
@@ -27,7 +29,7 @@ function MyVerticallyCenteredModal(props) {
       centered>
       <Modal.Header closeButton>
         <Modal.Title id="contained-modal-title-vcenter">
-          <center><h1>Mapa de la </h1></center>
+          <center><h1>Ruta 2</h1></center>
         </Modal.Title>
       </Modal.Header>
       <Modal.Body>
@@ -38,35 +40,24 @@ function MyVerticallyCenteredModal(props) {
                         smallImage: {
                             alt: 'Wristwatch by Ted Baker London',
                             isFluidWidth: true,
-                            src: '/images/logo.png',
+                            src: '/images/Ruta 2.png',
                         },
                         largeImage: {
-                            src: '/images/logo.png',
+                            src: '/images/Ruta 2.png',
                             width: 1200,
                             height: 1800
                         }
                     }} />
-  
-  
-  {/*<Figure.Image
-    width={400}
-    height={400}
-    alt=""
-    src={require("../ruta 1.jpg")}
-  />*/}
   <Figure.Caption>
- {props.rutita}
+    Mapa de las estaciones que componen la Ruta 2.
   </Figure.Caption>
 </Figure> </center>
       </Modal.Body>
       <Modal.Footer>
-        <Button onClick={props.onHide}>Close</Button>
+        <Button onClick={props.onHide}>Cerrar</Button>
       </Modal.Footer>
     </Modal>
   );
 }
 
-
-}
-
-export default Camiones
+export default Ruta2

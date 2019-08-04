@@ -4,7 +4,7 @@ import Button from 'react-bootstrap/Button'
 import Figure from 'react-bootstrap/Figure'
 import ReactImageMagnify from 'react-image-magnify';
 
-function Mapas() {
+function Ruta4() {
   const [modalShow, setModalShow] = React.useState(false);
 
   return (
@@ -29,7 +29,7 @@ function MyVerticallyCenteredModal(props) {
       centered>
       <Modal.Header closeButton>
         <Modal.Title id="contained-modal-title-vcenter">
-          <center><h1>gjhcgjfk</h1></center>
+          <center><h1>Ruta 4</h1></center>
         </Modal.Title>
       </Modal.Header>
       <Modal.Body>
@@ -40,24 +40,24 @@ function MyVerticallyCenteredModal(props) {
                         smallImage: {
                             alt: 'Wristwatch by Ted Baker London',
                             isFluidWidth: true,
-                            src: '/images/logo.png',
+                            src: '/images/Ruta 4.png',
                         },
                         largeImage: {
-                            src: '/images/logo.png',
+                            src: '/images/Ruta 4.png',
                             width: 1200,
                             height: 1800
                         }
                     }} />
   <Figure.Caption>
-    Mapa de las estaciones que componen la ruta 1.
+    Mapa de las estaciones que componen la Ruta 4.
   </Figure.Caption>
 </Figure> </center>
       </Modal.Body>
       <Modal.Footer>
-        <Button onClick={props.onHide}>Close</Button>
+        <Button onClick={props.onHide}>Cerrar</Button>
       </Modal.Footer>
     </Modal>
   );
 }
 
-export default Mapas
+export default Ruta4

@@ -34,17 +34,17 @@ class App extends Component {
         console.log("este es antes" + a)
         console.log("este es despues" + d)
         console.log("este es el nombre " + estacion)
-        let beacon_url = "http://localhost:3000/rutas?estacion=" + estacion +
-            // "&hora=" + a + ":48" +
-            // "&hora=" + hora + ":00" +
-            // "&hora=" + hora + ":12" +
-            // "&hora=" + hora + ":24" +
-            // "&hora=" + hora + ":36" +
-            // "&hora=" + hora + ":48" +
-            // "&hora=" + d + ":00" +
-            // "&hora=" + d + ":12" +
+        let beacon_url = "https://busstop-api.herokuapp.com/rutas?estacion=" + estacion +
+             // "&hora=" + a + ":48" +
+             "&hora=" + hora + ":00" +
+             "&hora=" + hora + ":12" +
+             "&hora=" + hora + ":24" +
+             "&hora=" + hora + ":36" +
+             "&hora=" + hora + ":48" +
+             "&hora=" + d + ":00" +
+             "&hora=" + d + ":12"
             // "&hora=" + d + ":24" +
-            "&hora=" + hora + ":24"
+            // "&hora=" + "8" + ":24"
         console.log(beacon_url)
         let r = setTimeout(axios.get(beacon_url)
         .then(res => {
