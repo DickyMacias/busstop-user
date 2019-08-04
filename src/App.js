@@ -7,6 +7,8 @@ import { Container, Row, Col, Card, CardBody } from "shards-react";
 
 
 class App extends Component {
+
+    
     state = {
         rutas: []
     }
@@ -32,7 +34,7 @@ class App extends Component {
         console.log("este es antes" + a)
         console.log("este es despues" + d)
         console.log("este es el nombre " + estacion)
-        let beacon_url = "https://busstop-api.herokuapp.com/rutas?estacion=" + estacion +
+        let beacon_url = "http://localhost:3000/rutas?estacion=" + estacion +
             // "&hora=" + a + ":48" +
             // "&hora=" + hora + ":00" +
             // "&hora=" + hora + ":12" +
@@ -42,21 +44,18 @@ class App extends Component {
             // "&hora=" + d + ":00" +
             // "&hora=" + d + ":12" +
             // "&hora=" + d + ":24" +
-            "&hora=" + "8" + ":24"
+            "&hora=" + hora + ":24"
         console.log(beacon_url)
-        axios.get(beacon_url)
-            .then(res => {
-                const rutas = res.data;
-                this.setState({ rutas });
-            })
-
-        this.forceUpdate();
+        let r = setTimeout(axios.get(beacon_url)
+        .then(res => {
+            const rutas = res.data;
+            this.setState({ rutas });
+        }), 500);
 
     }
 
     render() {
         return ( <React.Fragment>
-            <StickyContainer>
             <div className="sticky">
             <Pages> </Pages>  
             <Container>
@@ -66,7 +65,7 @@ class App extends Component {
             <Col>
             <center>
             <img alt = ""
-            src = { require("./utch.png") }
+            src = {process.env.PUBLIC_URL + '/images/'+ this.station + '.png'}
             width = "60"
             height = "60"
             className = "d-inline-block align-top"/>
@@ -90,7 +89,7 @@ class App extends Component {
             </h1> </center>   
             </div> 
             </div>
-            </StickyContainer>
+
             <Rutas rutas = { this.state.rutas }/>    
             </React.Fragment>
         );

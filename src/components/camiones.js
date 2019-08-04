@@ -4,21 +4,19 @@ import Button from 'react-bootstrap/Button'
 import Figure from 'react-bootstrap/Figure'
 import ReactImageMagnify from 'react-image-magnify';
 
-function Mapas() {
+function Camiones(id) {
   const [modalShow, setModalShow] = React.useState(false);
 
   return (
       <div>
       <Button variant="primary" onClick={() => setModalShow(true)}>
-        Ver Ruta
       </Button>
 
-      <MyVerticallyCenteredModal
+      <MyVerticallyCenteredModal rutita={id}
         show={modalShow}
         onHide={() => setModalShow(false)}/>
       </div>
   );
-}
 
 function MyVerticallyCenteredModal(props) {
   return (
@@ -29,7 +27,7 @@ function MyVerticallyCenteredModal(props) {
       centered>
       <Modal.Header closeButton>
         <Modal.Title id="contained-modal-title-vcenter">
-          <center><h1>gjhcgjfk</h1></center>
+          <center><h1>Mapa de la </h1></center>
         </Modal.Title>
       </Modal.Header>
       <Modal.Body>
@@ -48,8 +46,16 @@ function MyVerticallyCenteredModal(props) {
                             height: 1800
                         }
                     }} />
+  
+  
+  {/*<Figure.Image
+    width={400}
+    height={400}
+    alt=""
+    src={require("../ruta 1.jpg")}
+  />*/}
   <Figure.Caption>
-    Mapa de las estaciones que componen la ruta 1.
+ {props.rutita}
   </Figure.Caption>
 </Figure> </center>
       </Modal.Body>
@@ -60,4 +66,7 @@ function MyVerticallyCenteredModal(props) {
   );
 }
 
-export default Mapas
+
+}
+
+export default Camiones

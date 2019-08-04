@@ -2,6 +2,7 @@ import React from 'react'
 import { Container, Row, Col, Card, CardBody } from "shards-react";
 import Badge from 'react-bootstrap/Badge'
 import Mapas from './mapas';
+import Camiones from './camiones';
 
 const Rutas = ({ rutas }) => {
 
@@ -18,7 +19,8 @@ const Rutas = ({ rutas }) => {
                       <tr >
                         <td> <center> { ruta.ruta } </center></td>
                         <td> <center> { ruta.hora } </center></td>
-                        <td onClick={() => {alert("El camion no ha pasado por la estacion anterior")}}> <center><Badge pill variant = "success"> { ruta.camion } </Badge></center></td>
+                        <td> <center>{ ruta.camion }</center></td>
+                        <td> <center><Camiones id={ruta.camion}/>{ruta.camion}</center></td>
                         <td> 
 													{(() => {
                             switch (ruta.check) {
@@ -48,5 +50,10 @@ const Rutas = ({ rutas }) => {
 		</div>
 	)
 };
+
+function data(ruta){
+
+
+}
 
 export default Rutas

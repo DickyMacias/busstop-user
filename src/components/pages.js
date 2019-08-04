@@ -12,7 +12,7 @@ const Pages = ({ pages }) => {
             expand = "true">
                 <Navbar.Brand href = "#home">
                     <img alt = ""
-                    src = {require("../logo.png")}
+                    src = {process.env.PUBLIC_URL + '/images/logo.png'}
                     width = "30"
                     height = "30"
                     className = "d-inline-block align-top"    
