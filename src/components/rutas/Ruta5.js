@@ -40,10 +40,10 @@ function MyVerticallyCenteredModal(props) {
                         smallImage: {
                             alt: 'Wristwatch by Ted Baker London',
                             isFluidWidth: true,
-                            src: '/images/Ruta 5.png',
+                            src: '/images/Mapa5.png',
                         },
                         largeImage: {
-                            src: '/images/Ruta 5.png',
+                            src: '/images/Mapa5.png',
                             width: 1200,
                             height: 1800
                         }

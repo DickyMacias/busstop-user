@@ -4,15 +4,15 @@ import Button from 'react-bootstrap/Button'
 import Ruta1 from '../rutas/Ruta1';
 
 function Camion101() {
-  var c101 = "101"
+  var c = "101"
   const [modalShow, setModalShow] = React.useState(false);
   return (
       <div>
       <Button variant="primary" onClick={() => setModalShow(true)}>
-        {c101}
+        {c}
       </Button>
 
-      <MyVerticallyCenteredModal id={c101}
+      <MyVerticallyCenteredModal id={c}
         show={modalShow}
         onHide={() => setModalShow(false)}/>
       </div>
@@ -28,7 +28,7 @@ function MyVerticallyCenteredModal(props) {
       centered>
       <Modal.Header closeButton>
         <Modal.Title id="contained-modal-title-vcenter">
-          <center><h1>Camion {props.c101}</h1></center>
+          <center><h1>Camion {props.c}</h1></center>
         </Modal.Title>
       </Modal.Header>
       <Modal.Body>

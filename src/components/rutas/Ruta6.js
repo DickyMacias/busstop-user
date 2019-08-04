@@ -38,12 +38,12 @@ function MyVerticallyCenteredModal(props) {
         
         <ReactImageMagnify {...{
                         smallImage: {
-                            alt: 'Wristwatch by Ted Baker London',
+                            alt: '',
                             isFluidWidth: true,
-                            src: '/images/Ruta 6.png',
+                            src: '/images/Mapa6.png',
                         },
                         largeImage: {
-                            src: '/images/Ruta 6.png',
+                            src: '/images/Mapa6.png',
                             width: 1200,
                             height: 1800
                         }
