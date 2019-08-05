@@ -3,14 +3,15 @@ import Modal from 'react-bootstrap/Modal'
 import Button from 'react-bootstrap/Button'
 import Figure from 'react-bootstrap/Figure'
 import ReactImageMagnify from 'react-image-magnify';
+import mapa from '../mapas/Mapa3.png';
 
 function Ruta3() {
   const [modalShow, setModalShow] = React.useState(false);
 
   return (
       <div>
-      <Button variant="primary" onClick={() => setModalShow(true)}>
-        Ver Ruta
+      <Button variant="info" size="sm" onClick={() => setModalShow(true)}>
+      Mapa
       </Button>
 
       <MyVerticallyCenteredModal
@@ -40,10 +41,10 @@ function MyVerticallyCenteredModal(props) {
                         smallImage: {
                             alt: '',
                             isFluidWidth: true,
-                            src: '/images/Mapa3.png',
+                            src: mapa,
                         },
                         largeImage: {
-                            src: '/images/Mapa3.png',
+                            src: mapa,
                             width: 1200,
                             height: 1800
                         }

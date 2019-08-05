@@ -32,7 +32,7 @@ class App extends Component {
         console.log("este es antes" + a)
         console.log("este es despues" + d)
         console.log("este es el nombre " + estacion)
-        let beacon_url = "http://localhost:3000/rutas?estacion=" + estacion +
+        let beacon_url = "https://busstop-api.herokuapp.com/rutas?estacion=" + estacion +
              // "&hora=" + a + ":48" +
              "&hora=" + hora + ":00" +
              "&hora=" + hora + ":12" +
@@ -49,6 +49,7 @@ class App extends Component {
             const rutas = res.data;
             this.setState({ rutas });
         }), 500);
+        
 
     }
 
@@ -72,7 +73,7 @@ class App extends Component {
             
             <center>
             
-            <h2> Estacion { this.station } </h2> </center> </Col>  </Row> 
+            <h2> Estación { this.station } </h2> </center> </Col>  </Row> 
             </CardBody>  
             </Card> 
             </Container>  

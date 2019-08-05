@@ -1,18 +1,19 @@
 import React from 'react'
 import Modal from 'react-bootstrap/Modal'
 import Button from 'react-bootstrap/Button'
-import Ruta1 from '../rutas/Ruta1';
+import Clone from '../../Clone'
 
-function Camion101() {
-  var c101 = "101"
+function Camion604() {
+  var c = "604"
+  
   const [modalShow, setModalShow] = React.useState(false);
   return (
       <div>
-      <Button variant="primary" onClick={() => setModalShow(true)}>
-        {c101}
+      <Button variant="primary" size="sm" onClick={() => setModalShow(true)}>
+        {c}
       </Button>
 
-      <MyVerticallyCenteredModal id={c101}
+      <MyVerticallyCenteredModal c={c}
         show={modalShow}
         onHide={() => setModalShow(false)}/>
       </div>
@@ -28,14 +29,11 @@ function MyVerticallyCenteredModal(props) {
       centered>
       <Modal.Header closeButton>
         <Modal.Title id="contained-modal-title-vcenter">
-          <center><h1>Camion {props.c101}</h1></center>
+          <center><h1>Camión {props.c}</h1></center>
         </Modal.Title>
       </Modal.Header>
       <Modal.Body>
-        {/*<h4>Centered Modal</h4>*/}
-        <center>
-          <Ruta1/>
-        </center>
+             <Clone c={props.c}/>
       </Modal.Body>
       <Modal.Footer>
         <Button onClick={props.onHide}>Cerrar</Button>
@@ -45,4 +43,4 @@ function MyVerticallyCenteredModal(props) {
 }
 
 
-export default Camion101
+export default Camion604

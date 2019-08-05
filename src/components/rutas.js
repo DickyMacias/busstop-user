@@ -37,20 +37,34 @@ import Camion602 from '../components/camiones/camion602';
 import Camion603 from '../components/camiones/camion603';
 import Camion604 from '../components/camiones/camion604';
 import Camion605 from '../components/camiones/camion605';
+import Logo1 from '../components/logos/Ruta1.png';
+import Logo2 from '../components/logos/Ruta2.png';
+import Logo3 from '../components/logos/Ruta3.png';
+import Logo4 from '../components/logos/Ruta4.png';
+import Logo5 from '../components/logos/Ruta5.png';
+import Logo6 from '../components/logos/Ruta6.png';
 
 const Rutas = ({ rutas }) => {
 
 	return ( 
 		<div> 
-			{rutas.map((ruta) => ( 
+
 				<Container fluid className = "main-content-container px-4">
           <Row>
             <Col>
               <Card small className = "mb-4" >
                 <CardBody className = "p-0 pb-3" >
                   <table className = "table mb-0">
-                    <tbody >
-                      <tr >
+                    <tbody>
+                    <tr>
+                      <th><center>Rutas</center></th>
+                      <th><center>Horario</center></th>
+                      <th><center>Camión</center></th>
+                      <th><center>Check-In</center></th>
+                      <th><center>Mapa</center></th>
+                    </tr>
+                    {rutas.map((ruta) => ( 
+                      <tr>
                       <td> 
 											 	<center> 
                          {(() => {
@@ -58,55 +72,49 @@ const Rutas = ({ rutas }) => {
                               case 'Ruta 1':
                                 return <center> 
                                   <img alt = ""
-                                    src = {process.env.PUBLIC_URL 
-                                    + '/images/Ruta1.png'}
-                                    width = "60"
-                                    height = "60"
+                                    src = {Logo1}
+                                    width = "30"
+                                    height = "30"
                                     className = "d-inline-block align-top"/> 
                                 </center> ;
                               case 'Ruta 2':
                                 return <center> 
                                   <img alt = ""
-                                    src = {process.env.PUBLIC_URL 
-                                    + '/images/Ruta2.png'}
-                                    width = "60"
-                                    height = "60"
+                                    src = {Logo2}
+                                    width = "30"
+                                    height = "30"
                                     className = "d-inline-block align-top"/> 
                                 </center> ;
                               case 'Ruta 3':
                                 return <center> 
                                   <img alt = ""
-                                    src = {process.env.PUBLIC_URL 
-                                    + '/images/Ruta3.png'}
-                                    width = "60"
-                                    height = "60"
+                                    src = {Logo3}
+                                    width = "30"
+                                    height = "30"
                                     className = "d-inline-block align-top"/> 
                                 </center> ;
                               case 'Ruta 4':
                                 return <center> 
                                   <img alt = ""
-                                    src = {process.env.PUBLIC_URL 
-                                    + '/images/Ruta4.png'}
-                                    width = "60"
-                                    height = "60"
+                                    src = {Logo4}
+                                    width = "30"
+                                    height = "30"
                                     className = "d-inline-block align-top"/> 
                                 </center> ;
                               case 'Ruta 5':
                                 return <center> 
                                   <img alt = ""
-                                    src = {process.env.PUBLIC_URL 
-                                    + '/images/Ruta5.png'}
-                                    width = "60"
-                                    height = "60"
+                                    src = {Logo5}
+                                    width = "30"
+                                    height = "30"
                                     className = "d-inline-block align-top"/> 
                                 </center> ;
                               case 'Ruta 6':
                                 return <center> 
                                   <img alt = ""
-                                    src = {process.env.PUBLIC_URL 
-                                    + '/images/Ruta6.png'}
-                                    width = "60"
-                                    height = "60"
+                                    src = {Logo6}
+                                    width = "30"
+                                    height = "30"
                                     className = "d-inline-block align-top"/> 
                                 </center> ;
                               default:
@@ -120,65 +128,65 @@ const Rutas = ({ rutas }) => {
                          {(() => {
                             switch (ruta.camion) {
                               case '101':
-                                return <center> <Camion101/>{ruta.camion} </center> ;
+                                return <center> <Camion101/>  </center> ;
                               case '102':
-                                return <center> <Camion102/>{ruta.camion} </center>;
+                                return <center> <Camion102/>  </center>;
                               case '103':
-                                return <center> <Camion103/>{ruta.camion} </center> ;
+                                return <center> <Camion103/>  </center> ;
                               case '104':
-                                return <center> <Camion104/>{ruta.camion} </center> ;
+                                return <center> <Camion104/>  </center> ;
                               case '105':
-                                return <center> <Camion105/>{ruta.camion} </center> ;
+                                return <center> <Camion105/>  </center> ;
                               case '201':
-                                return <center> <Camion201/>{ruta.camion} </center> ;
+                                return <center> <Camion201/>  </center> ;
                               case '202':
-                                return <center> <Camion202/>{ruta.camion} </center>;
+                                return <center> <Camion202/>  </center>;
                               case '203':
-                                return <center> <Camion203/>{ruta.camion} </center> ;
+                                return <center> <Camion203/>  </center> ;
                               case '204':
-                                return <center> <Camion204/>{ruta.camion} </center> ;
+                                return <center> <Camion204/>  </center> ;
                               case '205':
-                                return <center> <Camion205/>{ruta.camion} </center> ;
+                                return <center> <Camion205/>  </center> ;
                               case '301':
-                                return <center> <Camion301/>{ruta.camion} </center> ;
+                                return <center> <Camion301/>  </center> ;
                               case '302':
-                                return <center> <Camion302/>{ruta.camion} </center>;
+                                return <center> <Camion302/>  </center>;
                               case '303':
-                                return <center> <Camion303/>{ruta.camion} </center> ;
+                                return <center> <Camion303/>  </center> ;
                               case '304':
-                                return <center> <Camion304/>{ruta.camion} </center> ;
+                                return <center> <Camion304/>  </center> ;
                               case '305':
-                                return <center> <Camion305/>{ruta.camion} </center> ;
+                                return <center> <Camion305/>  </center> ;
                               case '401':
-                                return <center> <Camion401/>{ruta.camion} </center> ;
+                                return <center> <Camion401/>  </center> ;
                               case '402':
-                                return <center> <Camion402/>{ruta.camion} </center>;
+                                return <center> <Camion402/>  </center>;
                               case '403':
-                                return <center> <Camion403/>{ruta.camion} </center> ;
+                                return <center> <Camion403/>  </center> ;
                               case '404':
-                                return <center> <Camion404/>{ruta.camion} </center> ;
+                                return <center> <Camion404/>  </center> ;
                               case '405':
-                                return <center> <Camion405/>{ruta.camion} </center> ;
+                                return <center> <Camion405/>  </center> ;
                               case '501':
-                                return <center> <Camion501/>{ruta.camion} </center> ;
+                                return <center> <Camion501/>  </center> ;
                               case '502':
-                                return <center> <Camion502/>{ruta.camion} </center>;
+                                return <center> <Camion502/>  </center>;
                               case '503':
-                                return <center> <Camion503/>{ruta.camion} </center> ;
+                                return <center> <Camion503/>  </center> ;
                               case '504':
-                                return <center> <Camion504/>{ruta.camion} </center> ;
+                                return <center> <Camion504/>  </center> ;
                               case '505':
-                                return <center> <Camion505/>{ruta.camion} </center> ;
+                                return <center> <Camion505/>  </center> ;
                               case '601':
-                                return <center> <Camion601/>{ruta.camion} </center> ;
+                                return <center> <Camion601/>  </center> ;
                               case '602':
-                                return <center> <Camion602/>{ruta.camion} </center>;
+                                return <center> <Camion602/>  </center>;
                               case '603':
-                                return <center> <Camion603/>{ruta.camion} </center> ;
+                                return <center> <Camion603/>  </center> ;
                               case '604':
-                                return <center> <Camion604/>{ruta.camion} </center> ;
+                                return <center> <Camion604/>  </center> ;
                               case '605':
-                                return <center> <Camion605/>{ruta.camion} </center> ;
+                                return <center> <Camion605/>  </center> ;
                               default:
                                 return null;
                             }
@@ -220,6 +228,7 @@ const Rutas = ({ rutas }) => {
 													})()}</center> 
                         </td> 
 											 </tr> 
+                       ))} 
 										</tbody> 
 									</table> 
 								</CardBody> 
@@ -227,7 +236,7 @@ const Rutas = ({ rutas }) => {
 						</Col> 
 					</Row> 
 				</Container>
-      ))} 
+
 		</div>
 	)
 };

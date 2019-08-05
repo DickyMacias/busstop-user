@@ -8,7 +8,7 @@ const Lugares = ({ lugares }) => {
             <Card>
                 <CardBody>
                 <div>
-                    <center><h2>Estacion {this.station}</h2></center>
+                    <center><h2>Estación {this.station}</h2></center>
                 </div>
                 </CardBody>
             </Card>
