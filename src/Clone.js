@@ -21,13 +21,11 @@ class Clone extends Component {
         let bus_id = "https://busstop-api.herokuapp.com/rutas?camion="+this.props.c+""
         console.log(bus_id)
         // Se llama a API para traer datos con URL
-        let r = setTimeout(axios.get(bus_id)
-        .then(res => {
-            // Se pasa resultado a un JSON
-            const rutas = res.data;
-            // Se envia JSON a State
-            this.setState({ rutas });
-        }), 500);
+        setInterval(async () => { await axios.get(bus_id)
+            .then(res => { const rutas = res.data;
+                // Se envian al metodo state los resultados del JSON
+                this.setState({ rutas });
+            })}, 500);
         
 
     }
