@@ -9,7 +9,7 @@ class App extends Component {
 
 
     // En este metodo se guarda la vista inicial que se cargara al abrir la aplicacion.
-    componentDidMount() {
+    async componentDidMount() {
         // Cargar parametros desde URL
         var url_params = getParam();
         // Se dividen parametros segun su uso
@@ -30,7 +30,7 @@ class App extends Component {
         console.log("este es antes" + a)
         console.log("este es despues" + d)
         console.log("este es el nombre " + estacion)
-        let beacon_url = "https://busstop-api.herokuapp.com/rutas?estacion=" + estacion +
+        let beacon_url = "https://busstopcuu-api.herokuapp.com/rutas?estacion=" + estacion +
              // "&hora=" + a + ":48" +
              "&hora=" + hora + ":00" +
              "&hora=" + hora + ":12" +
@@ -43,19 +43,17 @@ class App extends Component {
             // "&hora=" + "8" + ":24"
         console.log(beacon_url)
         //Se utiliza axios para hacer la llamada recurrente y guardar respuesta en JSON
-        let r = setTimeout(axios.get(beacon_url)
-        .then(res => {
-            const rutas = res.data;
+        setInterval(async () => { await axios.get(beacon_url)
+        .then(res => { const rutas = res.data;
             // Se envian al metodo state los resultados del JSON
             this.setState({ rutas });
-        }), 500);
+        })}, 500);
         
-
     }
     // Se recibe JSON y se almacena en State como un arreglo
     state = {
         rutas: []
-    }
+    } 
 
     // Se renderizan los resultados en un JSX
     render() {
@@ -106,6 +104,7 @@ class App extends Component {
         );
     }
 }
+
 
 // Funcion para llamar parametros desde la URL
 function getParam() {
