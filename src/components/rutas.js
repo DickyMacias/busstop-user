@@ -1,3 +1,4 @@
+// Se importan todos los elementos y componentes a usar.
 import React from 'react'
 import { Container, Row, Col, Card, CardBody } from "shards-react";
 import Badge from 'react-bootstrap/Badge'
@@ -44,14 +45,16 @@ import Logo4 from '../components/logos/Ruta4.png';
 import Logo5 from '../components/logos/Ruta5.png';
 import Logo6 from '../components/logos/Ruta6.png';
 
+// Se crea componente que contiene las rutas que llegan del State de componente padre
 const Rutas = ({ rutas }) => {
 
 	return ( 
 		<div> 
-
+        {/*Se crea contenedor para la informaci[on a desplegar] */}
 				<Container fluid className = "main-content-container px-4">
           <Row>
             <Col>
+              {/*se crea card donde se mostrara la tabla */}
               <Card small className = "mb-4" >
                 <CardBody className = "p-0 pb-3" >
                   <table className = "table mb-0">
@@ -63,10 +66,12 @@ const Rutas = ({ rutas }) => {
                       <th><center>Check-In</center></th>
                       <th><center>Mapa</center></th>
                     </tr>
+                    {/* se itera el arreglo y se divide con un map para llamr por nombre los datos */}
                     {rutas.map((ruta) => ( 
                       <tr>
                       <td> 
 											 	<center> 
+                         {/*Se alterna logo segun la ruta */}
                          {(() => {
                             switch (ruta.ruta) {
                               case 'Ruta 1':
@@ -125,6 +130,7 @@ const Rutas = ({ rutas }) => {
                         <td> <center> { ruta.hora } </center></td>
                         <td> 
 											 	<center> 
+                         {/*Se alterna la ruta segun el camion seleccionado */}
                          {(() => {
                             switch (ruta.camion) {
                               case '101':
@@ -193,6 +199,7 @@ const Rutas = ({ rutas }) => {
 													})()}</center> 
                         </td> 
                         <td> 
+                          {/*Se alterna valor segun el valor de check-in en API */}
 													{(() => {
                             switch (ruta.check) {
                               case '0':
@@ -208,6 +215,7 @@ const Rutas = ({ rutas }) => {
 											 </td>
 											 <td> 
 											 	<center> 
+                          {/*Se alterna el mapa segun la ruta determinada*/}
                          {(() => {
                             switch (ruta.ruta) {
                               case 'Ruta 1':
@@ -241,5 +249,5 @@ const Rutas = ({ rutas }) => {
 	)
 };
 
-
+// Se exporta componente para llamarlo con JSX
 export default Rutas

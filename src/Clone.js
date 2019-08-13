@@ -2,12 +2,13 @@ import React, { Component } from 'react';
 import Rutas from './components/camiones';
 import axios from 'axios';
 
+// Componente que contiene listas de camiones
 class Clone extends Component { 
 
-    state = {
-        rutas: []
-    }
+// Muestra lo que se tendra al crear el componente como elemento.
     componentDidMount() {
+        // llama parametros de la URL
+        // Estacion es = a camion.
         var url_params = getParam();
         if (url_params) {
             var estacion = url_params['estacion'];
@@ -16,17 +17,26 @@ class Clone extends Component {
         } else {
             console.log("No se ha recibido ningún parámetro");
         }
+        // Se crea URL para llamar a la API
         let bus_id = "https://busstop-api.herokuapp.com/rutas?camion="+this.props.c+""
         console.log(bus_id)
+        // Se llama a API para traer datos con URL
         let r = setTimeout(axios.get(bus_id)
         .then(res => {
+            // Se pasa resultado a un JSON
             const rutas = res.data;
+            // Se envia JSON a State
             this.setState({ rutas });
         }), 500);
         
 
     }
+    // Se almacena JSON como arreglo
+    state = {
+        rutas: []
+    }
 
+    // Se renderiza Componente Rutas con informacion del State
     render() {
         return ( <React.Fragment>
             <Rutas rutas = { this.state.rutas }/>    
@@ -35,6 +45,7 @@ class Clone extends Component {
     }
 }
 
+// Funcion para traer parametros de URL
 function getParam() {
     // capturamos la url
     let loc = document.location.href;
@@ -54,6 +65,7 @@ function getParam() {
     }
 }
 
+// Funcion para revisar hora en tiempo real.
 function timeReader() {
     let today = new Date();
     let h = today.getHours();
@@ -64,9 +76,8 @@ function timeReader() {
     let t = setTimeout(timeReader, 500);
     return h;
 }
-
 function checkTime(i) {
-    if (i < 10) { i = "0" + i }; // add zero in front of numbers < 10
+    if (i < 10) { i = "0" + i }; 
     return i;
 }
 

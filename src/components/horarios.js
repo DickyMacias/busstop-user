@@ -2,6 +2,8 @@ import React from 'react'
 import { Container, Row, Col, Card, CardBody } from "shards-react";
 import Badge from 'react-bootstrap/Badge'
 
+
+// Componente de prueba, no se esta usando actualmente
 const Horarios = ({ rutas }) => {
 
 	return ( 

@@ -1,6 +1,7 @@
 import React from 'react'
 import { Container, Row, Col, Card, CardBody } from "shards-react";
 
+// Componente que contiene el nombre de la estacion.
 const Lugares = ({ lugares }) => {
   return (
     <div>

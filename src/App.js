@@ -7,23 +7,21 @@ import { Container, Row, Col, Card, CardBody } from "shards-react";
 
 class App extends Component {
 
-    state = {
-        rutas: []
-    }
+
+    // En este metodo se guarda la vista inicial que se cargara al abrir la aplicacion.
     componentDidMount() {
         // Cargar parametros desde URL
         var url_params = getParam();
+        // Se dividen parametros segun su uso
         let hora = timeReader();
         let a = parseInt(hora) - 1;
         let d = parseInt(hora) + 1;
 
+        // Se separan los parametros para traer el de la estacion
         if (url_params) {
             var estacion = url_params['estacion'];
             this.station = estacion;
-            // for(var index in url_params)
-            // {
-            //   console.log(" clave: "+index+" - valor: "+url_params[index]);
-            // }
+        // Se utiliza la consola para revisar que los parametros sean correctos
             console.log("La estacion es: " + estacion);
         } else {
             console.log("No se ha recibido ningún parámetro");
@@ -44,25 +42,38 @@ class App extends Component {
             // "&hora=" + d + ":24" +
             // "&hora=" + "8" + ":24"
         console.log(beacon_url)
+        //Se utiliza axios para hacer la llamada recurrente y guardar respuesta en JSON
         let r = setTimeout(axios.get(beacon_url)
         .then(res => {
             const rutas = res.data;
+            // Se envian al metodo state los resultados del JSON
             this.setState({ rutas });
         }), 500);
         
 
     }
+    // Se recibe JSON y se almacena en State como un arreglo
+    state = {
+        rutas: []
+    }
 
+    // Se renderizan los resultados en un JSX
     render() {
-        return ( <React.Fragment>
+        // Se regresa la informacion que se mostrara
+        return ( 
+            // Se genera un fragmento de React para contener los componentes
+            <React.Fragment>
             <div className="sticky">
+            {/* Se inserta el nav en la pagina principal*/}
             <Pages> </Pages>  
             <Container>
+            {/* Se crea una tarjeta para guardar los datos de estacion e imagen */}
             <Card>
             <CardBody>
             <Row>
             <Col>
             <center>
+            {/* Se inserta imagen y se llama PATH env para traerla de fuera del src*/}
             <img alt = ""
             src = {process.env.PUBLIC_URL + '/images/'+ this.station + '.png'}
             width = "60"
@@ -72,7 +83,7 @@ class App extends Component {
             <Col>
             
             <center>
-            
+            {/* Se inserta nombre de la estacion desde parametros recibidos de URL*/}
             <h2> Estación { this.station } </h2> </center> </Col>  </Row> 
             </CardBody>  
             </Card> 
@@ -82,19 +93,21 @@ class App extends Component {
             <div>
             <center>
             <h1>
+            {/* Se inserta componente Clock desde package*/}
             <Clock format = { 'HH:mm:ss' }
             ticking = { true }
             timezone = { 'America/Chihuahua' }/>  
             </h1> </center>   
             </div> 
             </div>
-
+            {/* Se llama a componente rutas y se le pasa como parametros el arreglo guardado en State */}
             <Rutas rutas = { this.state.rutas }/>    
             </React.Fragment>
         );
     }
 }
 
+// Funcion para llamar parametros desde la URL
 function getParam() {
     // capturamos la url
     let loc = document.location.href;
@@ -114,6 +127,7 @@ function getParam() {
     }
 }
 
+// Funcion para leer el tiempo de reloj y mostrarlo en tiempo real.
 function timeReader() {
     let today = new Date();
     let h = today.getHours();
@@ -125,10 +139,11 @@ function timeReader() {
     return h;
 }
 
+// Funcion para en caso de minuto ser menos a 10 agregar 0 antes del numero
 function checkTime(i) {
-    if (i < 10) { i = "0" + i }; // add zero in front of numbers < 10
+    if (i < 10) { i = "0" + i }; 
     return i;
 }
 
-
+// Se exporta componente para llamarse con JSX
 export default App;

@@ -5,16 +5,18 @@ import Figure from 'react-bootstrap/Figure'
 import ReactImageMagnify from 'react-image-magnify';
 import mapa from '../mapas/Mapa1.png';
 
-
+// Componente funcional que contiene modal con rutas (todas las rutas son iguales)
 function Ruta1() {
+  // Se habilita modal para usarse
   const [modalShow, setModalShow] = React.useState(false);
 
+  // Regresa un modal con informacion
   return (
       <div>
       <Button variant="info" size="sm" onClick={() => setModalShow(true)}>
         Mapa
       </Button>
-
+      {/* se llama a componente interno y se le pasan parametros */}
       <MyVerticallyCenteredModal
         show={modalShow}
         onHide={() => setModalShow(false)}/>
@@ -22,7 +24,9 @@ function Ruta1() {
   );
 }
 
+// Componente funcional hijo recibe parametros de Ruta1()
 function MyVerticallyCenteredModal(props) {
+  //regresa elementos contenidos en modal
   return (
     <Modal
       {...props}
@@ -36,8 +40,9 @@ function MyVerticallyCenteredModal(props) {
       </Modal.Header>
       <Modal.Body>
         {/*<h4>Centered Modal</h4>*/}
+        {/*Se crea contenedor para imagen */}
         <center><Figure>
-        
+        {/*Se depliega imagen en 2 tamanos para magnificar el tamano como zoom */}
         <ReactImageMagnify {...{
                         smallImage: {
                             alt: '',
@@ -56,10 +61,12 @@ function MyVerticallyCenteredModal(props) {
 </Figure> </center>
       </Modal.Body>
       <Modal.Footer>
+      {/*Se regresa parametro para cerrar el modal*/}
         <Button onClick={props.onHide}>Cerrar</Button>
       </Modal.Footer>
     </Modal>
   );
 }
 
+// Se exporta componente
 export default Ruta1

@@ -1,7 +1,7 @@
 import React from 'react';
-
 import axios from 'axios';
 
+// Componente de prueba, no se esta usando actualmente
 export default class Horarios2 extends React.Component {
   state = {
     persons: []
