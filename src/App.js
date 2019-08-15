@@ -38,7 +38,7 @@ class App extends Component {
              "&hora=" + hora + ":36" +
              "&hora=" + hora + ":48" +
              "&hora=" + d + ":00" +
-             "&hora=" + d + ":12"
+             "&hora=" + d + ":12" 
             // "&hora=" + d + ":24" +
             // "&hora=" + "8" + ":24"
         console.log(beacon_url)
@@ -48,6 +48,7 @@ class App extends Component {
             // Se envian al metodo state los resultados del JSON
             this.setState({ rutas });
         })}, 500);
+        
         
     }
     // Se recibe JSON y se almacena en State como un arreglo
