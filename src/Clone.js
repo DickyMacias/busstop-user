@@ -18,7 +18,7 @@ class Clone extends Component {
             console.log("No se ha recibido ningún parámetro");
         }
         // Se crea URL para llamar a la API
-        let bus_id = "https://busstop-api.herokuapp.com/rutas?camion="+this.props.c+""
+        let bus_id = "https://busstopcuu-api.herokuapp.com/rutas?camion="+this.props.c+"&_sort=id&_order=asc"
         console.log(bus_id)
         // Se llama a API para traer datos con URL
         setInterval(async () => { await axios.get(bus_id)
